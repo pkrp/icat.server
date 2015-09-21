@@ -4,7 +4,7 @@
 
 	<groupId>org.icatproject</groupId>
 	<artifactId>icat.server</artifactId>
-	<version>4.6.0-SNAPSHOT</version>
+	<version>4.5.0</version>
 	<packaging>war</packaging>
 	<name>ICAT Server</name>
 
@@ -72,12 +72,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.icatproject</groupId>
-			<artifactId>icat.authentication</artifactId>
-			<version>4.5.0-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.16</version>
@@ -130,7 +124,7 @@
 		<dependency>
 			<groupId>org.icatproject</groupId>
 			<artifactId>icat.utils</artifactId>
-			<version>4.10.2-SNAPSHOT</version>
+			<version>4.10.0</version>
 		</dependency>
 
 		<dependency>
@@ -138,6 +132,27 @@
 			<artifactId>icat.client</artifactId>
 			<version>4.5.0</version>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.icatproject</groupId>
+			<artifactId>icat.authentication</artifactId>
+			<version>4.5.0</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.icatproject</groupId>
+			<artifactId>icat.sql</artifactId>
+			<version>1.0.0</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.icatproject</groupId>
+			<artifactId>icat.nosql</artifactId>
+			<version>1.0.0</version>
+			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
@@ -266,7 +281,7 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>1.2.1</version>
 				<executions>
-					<execution>
+					<!-- <execution>
 						<id>Generate doc</id>
 						<phase>process-classes</phase>
 						<configuration>
@@ -284,7 +299,7 @@
 						<goals>
 							<goal>java</goal>
 						</goals>
-					</execution>
+					</execution> -->
 
 					<execution>
 						<id>Install .war</id>
@@ -328,18 +343,18 @@
 			</plugin>
 
 
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
 				<version>2.7</version>
 				<dependencies>
-					<dependency><!-- add support for ssh/scp -->
+					<dependency>add support for ssh/scp
 						<groupId>org.apache.maven.wagon</groupId>
 						<artifactId>wagon-ssh</artifactId>
 						<version>1.0</version>
 					</dependency>
 				</dependencies>
-			</plugin>
+			</plugin> -->
 
 
 		</plugins>

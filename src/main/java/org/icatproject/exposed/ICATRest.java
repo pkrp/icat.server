@@ -39,7 +39,9 @@ import javax.json.stream.JsonGenerator;
 import javax.json.stream.JsonParser;
 import javax.json.stream.JsonParser.Event;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceUnit;
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.UserTransaction;
 import javax.ws.rs.Consumes;
@@ -140,8 +142,9 @@ public class ICATRest {
 
 	private int lifetimeMinutes;
 
-	@PersistenceContext(unitName = "icat")
-	private EntityManager manager;
+	private EntityManagerFactory managerFactory = javax.persistence.Persistence.createEntityManagerFactory("icat");;
+	
+	private EntityManager manager = managerFactory.createEntityManager();;
 
 	@EJB
 	Porter porter;
@@ -303,7 +306,7 @@ public class ICATRest {
 
 	// Note that the START_OBJECT has already been swallowed
 	private EntityBaseBean parseEntity(EventChecker checker, String beanName) throws IcatException {
-		Class<EntityBaseBean> klass = EntityInfoHandler.getClass(beanName);
+		Class<? extends EntityBaseBean> klass = EntityInfoHandler.getClass(beanName);
 		Map<Field, Method> getters = eiHandler.getGetters(klass);
 		Map<Field, Method> setters = eiHandler.getSetters(klass);
 		Set<Field> atts = eiHandler.getAttributes(klass);

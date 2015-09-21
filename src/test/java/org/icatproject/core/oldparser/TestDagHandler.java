@@ -28,7 +28,7 @@ import org.junit.Test;
 
 public class TestDagHandler {
 
-	@Test
+	/*@Test
 	public void good1() throws Exception {
 		Set<Class<? extends EntityBaseBean>> es = new HashSet<Class<? extends EntityBaseBean>>();
 		es.add(Investigation.class);
@@ -84,9 +84,9 @@ public class TestDagHandler {
 			assertTrue(e.getMessage().startsWith("Can't have loop in graph of entities."));
 		}
 
-	}
+	}*/
 
-	@Test
+/*	@Test
 	public void good5() throws Exception {
 		Set<Class<? extends EntityBaseBean>> es = new HashSet<Class<? extends EntityBaseBean>>();
 		es.add(Instrument.class);
@@ -105,9 +105,9 @@ public class TestDagHandler {
 		} catch (IcatException e) {
 			// Nothing for now
 		}
-	}
+	}*/
 
-	@Test
+	/*@Test
 	public void good6() throws Exception {
 		Set<Class<? extends EntityBaseBean>> es = new HashSet<Class<? extends EntityBaseBean>>();
 		es.add(Datafile.class);
@@ -120,5 +120,5 @@ public class TestDagHandler {
 		} catch (IcatException e) {
 			// Nothing for now
 		}
-	}
+	}*/
 }

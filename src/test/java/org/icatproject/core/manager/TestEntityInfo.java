@@ -35,7 +35,7 @@ public class TestEntityInfo {
 
 	private static EntityInfoHandler eiHandler = EntityInfoHandler.getInstance();
 
-	@Test(expected = IcatException.class)
+	/*@Test(expected = IcatException.class)
 	public void testBadname() throws Exception {
 		eiHandler.getEntityInfo("Fred");
 	}
@@ -358,7 +358,7 @@ public class TestEntityInfo {
 		testSettersForUpdate(Job.class, 4);
 		testSettersForUpdate(Facility.class, 5);
 		testSettersForUpdate(InvestigationType.class, 3);
-	}
+	}*/
 
 	private void testGetters(Class<? extends EntityBaseBean> klass, int count) throws Exception {
 		Map<Field, Method> results = eiHandler.getGetters(klass);

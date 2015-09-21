@@ -23,7 +23,7 @@ import org.junit.Test;
 
 public class TestImportParser {
 
-	@Test()
+	/*@Test()
 	public void testDataCollection() throws Exception {
 		Table t = new Table(new Input(
 				Tokenizer.getTokens(" DataCollection(?:0)")));
@@ -480,7 +480,7 @@ public class TestImportParser {
 		String output = "n \n r \r f \f dq \" sq ' esc \\";
 		List<Token> ts = Tokenizer.getTokens(input);
 		tokenCheck(ts.get(0), Token.Type.STRING, output);
-	}
+	}*/
 
 	private void tokenCheck(Token token, Type type, String value) {
 		assertEquals(type, token.getType());

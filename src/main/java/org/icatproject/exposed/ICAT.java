@@ -20,7 +20,9 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceUnit;
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.UserTransaction;
 import javax.xml.ws.WebServiceContext;
@@ -94,8 +96,9 @@ public class ICAT {
 
 	private int lifetimeMinutes;
 
-	@PersistenceContext(unitName = "icat")
-	private EntityManager manager;
+	private EntityManagerFactory managerFactory = javax.persistence.Persistence.createEntityManagerFactory("icat");
+	
+	private EntityManager manager = managerFactory.createEntityManager();
 
 	@EJB
 	PropertyHandler propertyHandler;
@@ -252,6 +255,7 @@ public class ICAT {
 
 	@WebMethod
 	public String getUserName(@WebParam(name = "sessionId") String sessionId) throws IcatException {
+		logger.info("getting username");
 		return beanManager.getUserName(sessionId, manager);
 	}
 
@@ -438,6 +442,7 @@ public class ICAT {
 			throws IcatException {
 		try {
 			String userId = getUserName(sessionId);
+			System.out.println("search");
 			return beanManager.search(userId, query, manager, userTransaction);
 		} catch (IcatException e) {
 			reportIcatException(e);

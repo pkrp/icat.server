@@ -24,7 +24,7 @@ public class TestComparisonPredicate {
 		test(Dataset.class, "'fred' = name", "Dataset$.name = 'fred'");
 	}
 
-	@Test
+	/*@Test
 	public void testStringNav() throws Exception {
 		test(Datafile.class, "dataset.investigation.name = 'fred'",
 				"Datafile$.dataset.investigation.name = 'fred'");
@@ -37,7 +37,7 @@ public class TestComparisonPredicate {
 		testBad(Datafile.class, "datase.investigation.name = 'fred'",
 				"Attribute comparisons require one attribute name and one value: datase.investigation.name = fred");
 
-	}
+	}*/
 
 	@Test
 	public void testEnum() throws Exception {
